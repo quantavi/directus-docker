@@ -1,4 +1,4 @@
-FROM php:7-apache
+FROM php:7.1-apache
 MAINTAINER Kristian Frolund "https://github.com/Froelund"
 
 RUN apt-get update && apt-get install -y \
@@ -15,17 +15,17 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     mv composer.phar /usr/local/bin/composer
 
 RUN apt-get update && apt-get install -y \
-    libmcrypt-dev \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
-    libmcrypt-dev \
-    libpng12-dev
+    libpng-dev
 
 RUN apt-get install -y --no-install-recommends libmagickwand-dev && rm -rf /var/lib/apt/lists/*
 
-RUN docker-php-ext-install -j$(nproc) mcrypt pdo_mysql mysqli && \
+RUN docker-php-ext-install -j$(nproc) pdo_mysql mysqli && \
     docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
-    docker-php-ext-install -j$(nproc) gd
+    docker-php-ext-install -j$(nproc) gd && \
+    docker-php-ext-install opcache && \
+    echo 'opcache.validate_timestamps=0' >> /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
 
 RUN pecl install imagick
 

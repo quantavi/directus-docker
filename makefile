@@ -1,6 +1,6 @@
 .PHONY: build-base-image
 build-base-image:
-	docker build  -t 'getdirectus/directus-base-layer:0.0.10' directus-base-layer/
+	docker build  -t 'getdirectus/directus-base-layer:0.0.11' directus-base-layer/
 
 .PHONY: run-base-image
 run-base-image:

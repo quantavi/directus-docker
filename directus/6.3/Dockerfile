@@ -1,3 +1,4 @@
+# Base images after 0.0.10 DON'T have mcrypt
 FROM getdirectus/directus-base-layer:0.0.10
 MAINTAINER Luis Santos "luis@luissantos.pt"
 
