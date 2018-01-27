@@ -40,6 +40,8 @@ services:
      - MYSQL_PORT_3306_TCP_PORT=3306
      - MYSQL_ENV_MYSQL_PASSWORD=directus
      - MYSQL_ENV_MYSQL_USER=directus
+    # If you use docker for dev or want to test without opcache - disable with env var
+    #  - PHP_OPCACHE_ENABLED=false
 volumes:
   storage:
     # If you want to define externally, uncomment and adjust as needed

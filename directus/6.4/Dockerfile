@@ -1,4 +1,4 @@
-FROM getdirectus/directus-base-layer:0.0.14
+FROM getdirectus/directus-base-layer:0.0.15
 MAINTAINER Kristian Frolund "https://github.com/Froelund"
 
 RUN get-directus 6.4.5
