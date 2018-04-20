@@ -7,7 +7,7 @@ Official Directus Container
 [![](https://images.microbadger.com/badges/image/getdirectus/directus.svg)](https://microbadger.com/images/getdirectus/directus "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/getdirectus/directus.svg)](https://microbadger.com/images/getdirectus/directus "Get your own version badge on microbadger.com")
 
-## 7.0.0 Alpha 1
+## 7.0.0 Alpha 1 (Lepus Arcticus)
 - API 2.0.0 Alpha 1
 - App 7.0.0 Alpha 1
 
