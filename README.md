@@ -27,7 +27,7 @@ docker-compose up
 
 ### Using docker run
 
-[See bin/run_container](bin/container.sh)
+[See bin/run_container.sh](bin/run_container.sh)
 
 ## Build Images locally
 
