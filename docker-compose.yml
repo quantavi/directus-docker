@@ -16,11 +16,11 @@ services:
     # If you need to specify a persistent volume for mysql
     volumes:
       - "./.data/db:/var/lib/mysql"
-  directus:
+  directus_api:
     depends_on:
        - mysql
-    image: getdirectus/directus:6.4
-    container_name: directus
+    image: getdirectus/api:2.0.0-alpha.1
+    container_name: directus-api
     # links:
     #  - mysql:mysql
     ports:
@@ -28,8 +28,8 @@ services:
     restart: always
     volumes:
     # Switch between named storage, path storage
-      # - storage:/var/www/html/storage 
-      - ./.data/storage:/var/www/html/storage 
+      # - storage:/var/www/html/storage
+      - ./.data/storage:/var/www/html/storage
     # Replace ~/Development/directus with your local directus git checkout
     #    - ~/Development/directus:/var/www/html
     environment:
@@ -42,6 +42,14 @@ services:
      - MYSQL_ENV_MYSQL_USER=directus
     # If you use docker for dev or want to test without opcache - disable with env var
     #  - PHP_OPCACHE_ENABLED=false
+  directus_app:
+    depends_on:
+       - directus_api
+    image: getdirectus/app:7.0.0-alpha.1
+    container_name: directus-app
+    ports:
+     - "8000:8080"
+    restart: always
 volumes:
   storage:
     # If you want to define externally, uncomment and adjust as needed

@@ -7,19 +7,25 @@ Official Directus Container
 [![](https://images.microbadger.com/badges/image/getdirectus/directus.svg)](https://microbadger.com/images/getdirectus/directus "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/getdirectus/directus.svg)](https://microbadger.com/images/getdirectus/directus "Get your own version badge on microbadger.com")
 
+## 7.0.0 Alpha 1 (Lapis Lepus)
+- API 2.0.0 Alpha 1
+- App 7.0.0 Alpha 1
 
-## Available versions
+## Quick Start
 
-* 6.3 (Lapis Lepus) [(directus/6.3/Dockerfile)](https://github.com/directus/directus-docker/blob/master/directus/6.3/Dockerfile)
-* 6.4 (Ruby Rabbit) [(directus/6.4/Dockerfile)](https://github.com/directus/directus-docker/blob/master/directus/6.4/Dockerfile)
+### Using script (using docker run)
 
-## Quick Start using docker-compose
+```bash
+sh bin/run_container.sh
+```
+
+### Using docker-compose
 ```bash
 # Start directus
 docker-compose up
 ```
 
-## Quick Start
+### Using docker run
 ```bash
 # Start mysql
 docker run -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=directus -e MYSQL_USER=directus \
@@ -27,6 +33,12 @@ docker run -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=directus -e MYSQL_U
 
 # Start directus
 docker run --link mysql:mysql -p 8080:8080 --name directus -d getdirectus/directus:6.4
+```
+
+## Build Image locally
+
+```bash
+sh bin/build_images.sh
 ```
 
 ## Directus Login Credentials

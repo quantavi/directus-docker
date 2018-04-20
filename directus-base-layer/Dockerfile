@@ -1,13 +1,16 @@
 FROM php:7.1-apache
 MAINTAINER Kristian Frolund "https://github.com/Froelund"
 
+RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
 RUN apt-get update && apt-get install -y \
   wget \
   git \
   zip \
   unzip \
   vim \
-  mysql-client
+  mysql-client \
+  nodejs \
+  build-essential
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
     php composer-setup.php && \
@@ -34,6 +37,6 @@ RUN a2enmod rewrite
 
 ADD usr /usr
 ADD etc /etc
-RUN chown www-data:www-data /var/www
+# RUN chown www-data:www-data /var/www
 
-CMD ["run-directus"]
+# CMD ["run-directus"]

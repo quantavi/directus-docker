@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+DIRECTUS_API_VERSION=${1:-master}
+
+rm -rf /var/www/html
+mkdir -p /var/www
+
+wget -O /tmp/directus_api_download.tar.gz https://github.com/directus/api/archive/$DIRECTUS_API_VERSION.tar.gz
+tar -xf /tmp/directus_api_download.tar.gz -C /var/www
+
+mv /var/www/api* /var/www/html
+rm /tmp/directus_api_download.tar.gz
