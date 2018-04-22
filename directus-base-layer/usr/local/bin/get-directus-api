@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 DIRECTUS_API_VERSION=${1:-master}

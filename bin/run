@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Start mysql
 docker run -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=directus -e MYSQL_USER=directus \
