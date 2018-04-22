@@ -36,7 +36,3 @@ RUN pecl install imagick
 RUN a2enmod rewrite
 
 ADD usr /usr
-ADD etc /etc
-# RUN chown www-data:www-data /var/www
-
-# CMD ["run-directus"]
