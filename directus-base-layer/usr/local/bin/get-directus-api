@@ -9,5 +9,5 @@ mkdir -p /var/www
 wget -O /tmp/directus_api_download.tar.gz https://github.com/directus/api/archive/$DIRECTUS_API_VERSION.tar.gz
 tar -xf /tmp/directus_api_download.tar.gz -C /var/www
 
-mv /var/www/api* /var/www/html
+mv /var/www/api-$DIRECTUS_API_VERSION /var/www/html
 rm /tmp/directus_api_download.tar.gz
