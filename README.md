@@ -16,7 +16,7 @@ Official Directus Container
 ### Using script (use docker run)
 
 ```bash
-sh bin/run_container.sh
+sh bin/run.sh
 ```
 
 ### Using docker-compose
@@ -27,12 +27,12 @@ docker-compose up
 
 ### Using docker run
 
-[See bin/run_container.sh](bin/run_container.sh)
+[See bin/run.sh](bin/run.sh)
 
 ## Build Images locally
 
 ```bash
-sh bin/build_images.sh
+sh bin/build.sh
 ```
 
 ## Directus Login Credentials
