@@ -1,5 +1,5 @@
 FROM getdirectus/directus-base-layer:0.0.15
-MAINTAINER Welling Guzman "https://github.com/wellingguzman"
+MAINTAINER Welling Guzmán "https://github.com/wellingguzman"
 
 RUN get-directus-app v7.0.0-alpha.1
 
