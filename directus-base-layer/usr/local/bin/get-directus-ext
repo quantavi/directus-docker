@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+if [ -z "$1" ]
+then
+  echo "Directus extensions version missing"
+  exit -1
+fi
+
+DIRECTUS_EXT_VERSION=$1
+EXT_FILENAME="extensions-$DIRECTUS_EXT_VERSION"
+if [ ${DIRECTUS_EXT_VERSION:0:1} = "v" ]
+then
+  EXT_FILENAME="extensions-${DIRECTUS_EXT_VERSION:1}"
+fi
+
+wget -O /tmp/core_ext.tar.gz https://github.com/directus/extensions/archive/$DIRECTUS_EXT_VERSION.tar.gz
+tar -xf /tmp/core_ext.tar.gz -C /tmp
+mv /tmp/$EXT_FILENAME/* /var/www/html/public/extensions/core
+
+rm /tmp/core_ext.tar.gz
