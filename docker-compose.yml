@@ -1,4 +1,4 @@
-version: '2'
+version: '2.1'
 services:
   mysql:
     image: mysql:5.5
@@ -9,6 +9,11 @@ services:
       - MYSQL_DATABASE=directus
       - MYSQL_USER=directus
       - MYSQL_PASSWORD=directus
+    healthcheck:
+      test: "mysql -udirectus -pdirectus -e \"SHOW DATABASES;\""
+      interval: 1s
+      timeout: 5s
+      retries: 4
     # publish mysql server ports to access
     # from outside of container with: mysql -h localhost -P 3306 --protocol=tcp -u directus -p
     # ports:
@@ -18,7 +23,8 @@ services:
       - "./.data/db:/var/lib/mysql"
   directus:
     depends_on:
-       - mysql
+      mysql:
+        condition: service_healthy
     image: getdirectus/directus:6.4
     container_name: directus
     # links:
@@ -28,8 +34,8 @@ services:
     restart: always
     volumes:
     # Switch between named storage, path storage
-      # - storage:/var/www/html/storage 
-      - ./.data/storage:/var/www/html/storage 
+      # - storage:/var/www/html/storage
+      - ./.data/storage:/var/www/html/storage
     # Replace ~/Development/directus with your local directus git checkout
     #    - ~/Development/directus:/var/www/html
     environment:
