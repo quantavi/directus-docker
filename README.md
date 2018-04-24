@@ -22,11 +22,20 @@ docker-compose up
 ## Quick Start
 ```bash
 # Start mysql
-docker run -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=directus -e MYSQL_USER=directus \
-          -e MYSQL_PASSWORD=directus --name mysql -d mysql:5.5
+docker run --env MYSQL_ROOT_PASSWORD=password \
+           --env MYSQL_DATABASE=directus \
+           --env MYSQL_USER=directus \
+           --env MYSQL_PASSWORD=directus \
+           --name mysql \
+           --detach \
+           mysql:5.5
 
 # Start directus
-docker run --link mysql:mysql -p 8080:8080 --name directus -d getdirectus/directus:6.4
+docker run --link mysql:mysql \
+           --publish 8080:8080 \
+           --name directus \
+           --detach \
+           getdirectus/directus:6.4
 ```
 
 ## Directus Login Credentials
