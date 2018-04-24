@@ -1,4 +1,4 @@
-version: '2'
+version: '2.1'
 services:
   mysql:
     image: mysql:5.5
@@ -9,6 +9,11 @@ services:
       - MYSQL_DATABASE=directus
       - MYSQL_USER=directus
       - MYSQL_PASSWORD=directus
+    healthcheck:
+      test: "mysql -udirectus -pdirectus -e \"SHOW DATABASES;\""
+      interval: 1s
+      timeout: 5s
+      retries: 4
     # publish mysql server ports to access
     # from outside of container with: mysql -h localhost -P 3306 --protocol=tcp -u directus -p
     # ports:
@@ -18,7 +23,8 @@ services:
       - "./.data/db:/var/lib/mysql"
   directus_api:
     depends_on:
-       - mysql
+      mysql:
+        condition: service_healthy
     image: getdirectus/api:2.0.0-alpha.1
     container_name: directus-api
     # links:
@@ -43,8 +49,6 @@ services:
     # If you use docker for dev or want to test without opcache - disable with env var
     #  - PHP_OPCACHE_ENABLED=false
   directus_app:
-    depends_on:
-       - directus_api
     image: getdirectus/app:7.0.0-alpha.1
     container_name: directus-app
     ports:

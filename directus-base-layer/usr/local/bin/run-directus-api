@@ -24,7 +24,6 @@ is_linked_container(){
 }
 
 is_database_installed(){
-  wait-for-it "$DIRECTUS_DB_HOST:$DIRECTUS_DB_PORT" --timeout=30
   tables=$(mysql -D $DIRECTUS_DB_SCHEMA -h $DIRECTUS_DB_HOST -u$DIRECTUS_DB_USER -P $DIRECTUS_DB_PORT -p$DIRECTUS_DB_PASSWORD --batch --skip-column-names -e "show tables")
 
   if [ -z "$tables" ]; then
