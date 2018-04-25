@@ -12,8 +12,8 @@ services:
     healthcheck:
       test: "mysql -udirectus -pdirectus -e \"SHOW DATABASES;\""
       interval: 1s
-      timeout: 5s
-      retries: 4
+      timeout: 6s
+      retries: 10
     # publish mysql server ports to access
     # from outside of container with: mysql -h localhost -P 3306 --protocol=tcp -u directus -p
     # ports:
