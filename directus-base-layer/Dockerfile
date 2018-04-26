@@ -25,7 +25,9 @@ RUN docker-php-ext-install -j$(nproc) pdo_mysql mysqli && \
     docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
     docker-php-ext-install -j$(nproc) gd && \
     docker-php-ext-install opcache && \
-    echo 'opcache.validate_timestamps=0\nopcache.enable=${PHP_OPCACHE_ENABLED}' >> /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
+    echo 'opcache.validate_timestamps=0\nopcache.enable=${PHP_OPCACHE_ENABLED}' >> /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini && \
+    docker-php-ext-install mbstring && \
+    docker-php-ext-install exif
 ENV PHP_OPCACHE_ENABLED=true
 
 RUN pecl install imagick
