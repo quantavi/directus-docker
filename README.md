@@ -11,19 +11,24 @@ Directus Docker Container
 
 ## Quick Start
 
-Install all dependencies and build the image by running:
+First you need to build the docker images by running:
+
+> **Why?** The images hasn't been released to docker hub yet, so you must install them locally on your machine.
 
 ```bash
 bash bin/build
 ```
 
-Then start the app using any of these methods:
+This command will build three images, `directus-base-layer`, `directus-api` and `directus-app`.
 
-### Using docker-compose
+### Run the containers using docker-compose
+
 ```bash
 # Start directus
 docker-compose up
 ```
+
+After docker compose is done running the containers you can access the app and api with the credentials below.
 
 ## Directus Default Login Credentials
 
