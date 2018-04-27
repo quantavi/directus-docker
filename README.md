@@ -19,12 +19,6 @@ bash bin/build
 
 Then start the app using any of these methods:
 
-### Using script (use docker run)
-
-```bash
-bash bin/run
-```
-
 ### Using docker-compose
 ```bash
 # Start directus
