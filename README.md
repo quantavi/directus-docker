@@ -25,11 +25,6 @@ Then start the app using any of these methods:
 docker-compose up
 ```
 
-### Using docker run
-
-[See bin/run](bin/run)
-
-
 ## Directus Default Login Credentials
 
 - APP Host: http://localhost:8080
