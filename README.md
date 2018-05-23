@@ -15,9 +15,12 @@ Official Directus Container
 
 ## Requirement
 
-* Docker 1.12.0+
+* Docker Engine `1.12.0+`
 
 ## Quick Start using docker-compose
+
+The Docker composer file format uses version `2.1`
+
 ```bash
 # Start directus
 docker-compose up
