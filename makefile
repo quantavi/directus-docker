@@ -21,3 +21,7 @@ run-6.3-image:
 .PHONY: run-6.4-image
 run-6.4-image:
   docker run -p 8080:8080 -it getdirectus/directus:6.4
+
+.PHONY: run-1.0-image
+run-1.0-image:
+docker run -p 8080:8080 -it getdirectus/directus:1.0

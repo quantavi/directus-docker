@@ -25,7 +25,7 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
-    image: getdirectus/directus:6.4
+    image: getdirectus/directus:1.0
     container_name: directus
     # links:
     #  - mysql:mysql
