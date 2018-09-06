@@ -14,10 +14,10 @@ services:
       interval: 5s
       timeout: 6s
       retries: 10
-    # publish mysql server ports to access
-    # from outside of container with: mysql -h localhost -P 3306 --protocol=tcp -u directus -p
-    # ports:
-    #  - "8806:3306"
+    ports:
+      - "8806:3306"
+      # publish mysql server ports to access
+      # from outside of container with: mysql -h localhost -P 3306 --protocol=tcp -u directus -p
     # If you need to specify a persistent volume for mysql
     volumes:
       - "./.data/db:/var/lib/mysql"
@@ -25,7 +25,7 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
-    image: hyperwenzel/quantavidirectus-docker:1.1
+    image: hyperwenzel/quantavidirectus-docker:1.1.2
     container_name: directus
     # links:
     #  - mysql:mysql
