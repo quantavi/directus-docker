@@ -1,4 +1,4 @@
-FROM hyperwenzel/directus-base-layer:1.0
+FROM hyperwenzel/directus-base-layer:latest
 MAINTAINER Krzysztof Wincel "kw@quantavi.com"
 
 RUN get-directus 1.0
